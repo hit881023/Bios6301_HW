@@ -1,5 +1,7 @@
 ---
 title: 'Bios 6301: Assignment 2'
+author: "Lingjun Fu"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
 output: pdf_document
 ---
 
