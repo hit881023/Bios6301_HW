@@ -153,7 +153,7 @@ residuals.
 predicted value from the `x$los` column. (5 points)
 
 ```{r}
-predict(mod) - x$los
+x$los - predict(mod)
 ```
 
 9. Try passing `mod` to the `residuals` function. (2 points)
@@ -243,3 +243,6 @@ t.test(los ~ gender, dat=x, var.equal=TRUE)
 t.test(los ~ gender, dat=x, var.equal=TRUE)$p.value
 coef(summary(lm(los ~ gender, dat=x)))[2,4]
 ```
+
+Both produce output that matches the p value for gender from the
+model summary.
