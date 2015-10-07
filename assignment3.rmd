@@ -72,12 +72,13 @@ for(i in 1:times){
     }
     mod <- lm(outcome ~ group, dat=x)
     mod.c <- coef(summary(mod))
-    p <- 2*pt(mod.c[2,1], df = 98, lower.tail = FALSE)
+    p <- 2*pt(mod.c[2,3], df = 98, lower.tail = FALSE)
     if(p <= alpha){
         count = count + 1
     }   
 }
-count/times
+power100 <- count/times
+print(paste0("the power when the sample size is 100 patients: ", power100))
 
 #############
 
@@ -98,12 +99,13 @@ for(i in 1:times){
     }
     mod <- lm(outcome ~ group, dat=x)
     mod.c <- coef(summary(mod))
-    p <- 2*pt(mod.c[2,1], df = 98, lower.tail = FALSE)
+    p <- 2*pt(mod.c[2,3], df = 998, lower.tail = FALSE)
     if(p <= alpha){
         count = count + 1
     }   
 }
-count/times
+power1000 <- count/times
+print(paste0("the power when the sample size is 1000 patients: ", power1000))
 ```
 
 The above is the R code. We can see that power increases significantly when we increase sample size from 100 to 1000.
@@ -155,7 +157,10 @@ r3 <- mvrnorm(n = 30, mean, corr, tol = 1e-6, empirical = TRUE, EISPACK = FALSE)
 r3 # cor(r3)-corr is very close to zero matrix
 ```
 
-See the above R code.
+See the above R code.  
+In step 1, we show the correlation matrix of the original data set.  
+In step 2, we generate 10,000 data sets each of which has 30 rows and similar correlation structure. Then we calculate the mean correlation matrix of them. We see that it's close to the original one.  
+In step 3, we generate one data set which has exactly the same correlation structure as the original one.
 
 ### Question 4 ###
 
