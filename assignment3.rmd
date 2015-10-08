@@ -179,7 +179,7 @@ P(B) &=& \sum_j P(B|A_j)P(A_j), \nonumber \\
 
 3. Formula 3:
 \begin{equation}
-\bf{J}=\frac{\emph{d}\bf{f}}{\emph{d}\bf{x}}=[\frac {\partial\textbf{f}}{\partial x_1} \cdots \frac {\partial{\bf{f}}} {\partial x_n}]=
+\textbf{J}= \frac{d\textbf{f}}{d\textbf{x}} = [\frac{\partial\textbf{f}}{\partial x_1} \cdots \frac{\partial\textbf{f}}{\partial x_n}] =
 \begin {bmatrix} 
 \frac {\partial \emph{f}_1} {\partial \emph{x}_1} & \cdots & \frac {\partial{\emph{f}_1}} {\partial \emph{x}_n} \\
 \vdots & \ddots & \vdots \\
