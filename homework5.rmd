@@ -60,15 +60,12 @@ sum(haart$loss==1)
 ### task 5
 reg_list <- strsplit(as.character(haart[,'init.reg']),',')
 all_drugs <- unique(unlist(reg_list))
-all_drugs
 reg_drugs <- matrix(nrow=nrow(haart), ncol=length(all_drugs))
 for(i in seq_along(all_drugs)){
     reg_drugs[,i] <- +sapply(reg_list, function(x) all_drugs[i] %in% x)
 }
 colnames(reg_drugs) <- all_drugs
 haart <- cbind(haart, reg_drugs) # append each unique drug to the database as new columns
-sum(reg_drugs)
-
 drug <- as.data.frame(reg_drugs)
 drug_sum <- sapply(drug, sum)
 drug_sum[drug_sum>100] # show drug regimen found over 100 times
